@@ -37,6 +37,15 @@ describe('Verify the assertion', ()=>{
         cy.get('a').should('have.length', 5)
 
         //Verify the logo
-        
+        cy.get('.orangehrm-login-branding').should('exist')
+
+        //Verify the inputted value right or wrong
+        cy.get("input[placeholder='Username']").type("Admin")
+        .and("have.value", "Admin")
+        .and("not.have.value", "admin")
+
+        cy.get("input[placeholder='Password']").type("admin123")
+        .and("have.value", "admin123")
+
     })
 })
