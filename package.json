@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "cypress:open": "cypress open", 
+    "cypress:headed": "cypress run --headed",
+    "cypress:headless": "cypress run",
+    "cypress:chrome": "cypress run --browser chrome --headed",
+    "cypress:firefox": "cypress run --browser firefox --headed"
+
+  },
+  "devDependencies": {
+    "cypress": "^12.2.0"
+  }
+}
