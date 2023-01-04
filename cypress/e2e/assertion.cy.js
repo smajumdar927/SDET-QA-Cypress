@@ -37,6 +37,6 @@ describe('Verify the assertion', ()=>{
         cy.get('a').should('have.length', 5)
 
         //Verify the logo
-        cy.
+        
     })
 })
