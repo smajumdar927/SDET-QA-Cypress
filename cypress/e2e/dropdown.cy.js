@@ -16,8 +16,23 @@ describe("Interact with dropdowns", ()=>{
         cy.get("#select2-billing_country-container").should("have.text", "Japan")
     });
     it('should auto suggest dropdown', () => {
-        cy.visit("https://www.dummyticket.com/dummy-ticket-for-visa-application/")
-      
+        cy.visit("https://www.wikipedia.org/")
+        cy.get("#searchInput").type("Bangladesh")
+        cy.get(".suggestion-title").contains("Bangladesh Liberation War").click()
+    });
+    it.only('should interact with dynamic dropdown', () => {
+        cy.visit("https://www.google.com/")
+        cy.get("input[name='q']").type("cypress automation")
+        //this is static way to write down
+        //cy.get(".wM6W7d").contains("cypress automation tutorial").click()
+
+        //this is dynamic way to write down
+        cy.get(".wM6W7d").each((element, index, list)=>{
+            if(element.text() == "cypress automation tool"){
+                cy.wrap(element).click()
+            }
+        })
+        cy.get("input[name='q']").should("have.value", "cypress automation tool")
     });
     
 
