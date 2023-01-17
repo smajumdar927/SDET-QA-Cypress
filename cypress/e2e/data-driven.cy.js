@@ -20,7 +20,7 @@ describe("Fixture test suit", ()=>{
         })
     })
 
-    it.only("should load the data from fixture file before all it test", () => {
+    it("should load the data from fixture file before all it test", () => {
         cy.visit('https://opensource-demo.orangehrmlive.com/')
         cy.get('.oxd-input[name="username"]').type(userData.userName)
         cy.get('.oxd-input[name="password"]').type(userData.passWord)
