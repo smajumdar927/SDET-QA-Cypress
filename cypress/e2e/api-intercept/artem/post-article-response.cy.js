@@ -1,6 +1,7 @@
 describe('Post article suit', ()=>{
 
 beforeEach(() => {
+    cy.intercept('GET', 'https://api.realworld.io/api/tags', {fixture: 'tags'})
     cy.visit('/login');
     cy.loginXfosoft('myxfosoft@xfosoft.com', 'xfosoft')
 });
@@ -20,6 +21,15 @@ it('should intercept post response', () => {
         console.log(res);
         expect(res.response.statusCode).to.equal(200)
     })
+});
+it.only('should mock/stub the api response', () => {
+    cy.get('.tag-pill').should('have.length', 6)
+    cy.get('.tag-list').should('contain', 'Manual Testing')
+    .and('contain', 'Automation')
+    .and('contain', 'Frontend Testing')
+    .and('contain', 'Backend Testing')
+    .and('contain', 'API Testing')
+    .and('contain', 'SQL')
 });
 
 })
