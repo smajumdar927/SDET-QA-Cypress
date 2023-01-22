@@ -11,17 +11,10 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+
 //
 // -- This is a child command --
-Cypress.Commands.add('loginXfosoft', (email, password)=>{
-    cy.get("input[placeholder='Email']").type(email)
-    cy.get("input[placeholder='Password']").type(password);
-    cy.get("button[type='submit']").click();
-})
-Cypress.Commands.add('logoutXfosoft', (email, password)=>{
-    cy.get(".nav-link[routerlink='/settings']").click();
-    cy.get('.btn.btn-outline-danger').click();
-})
+
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 //
